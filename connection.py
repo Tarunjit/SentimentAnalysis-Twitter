@@ -1,8 +1,13 @@
 __author__ = 'TarunjitSingh'
+### Source : https://pypi.python.org/pypi/twitter/
 
 import numpy as np
 import json
 import matplotlib.pyplot as plt
+import simplejson
+import oauth
+from twitter import *
+
 
 ## Testing json
 # with open("twitterSample.json") as fd:
@@ -39,3 +44,22 @@ import matplotlib.pyplot as plt
 #
 # plt.ylim(-2,2)
 # plt.show()
+
+token = "91070076-hXHCPWZNQiJ1LwwUFZLzjGJXMZLwoJkbZLKVCi6jx"
+token_key = "V0zScYzfuKBTl0VWWHpG84Y34gNGkIN80PDs5eQsnEdgO"
+con_secret = "vVypmaitmk21exXEo22Bi691H"
+con_secret_key = "9wWmNH6UgDafRuZKTZ02G7arEf9YsJfH2oYanaE6itk0FyMFKA"
+
+#t = Twitter(auth=OAuth(token , token_key, con_secret, con_secret_key)))
+t = Twitter(auth=OAuth("91070076-hXHCPWZNQiJ1LwwUFZLzjGJXMZLwoJkbZLKVCi6jx",
+                       "V0zScYzfuKBTl0VWWHpG84Y34gNGkIN80PDs5eQsnEdgO",
+                       "vVypmaitmk21exXEo22Bi691H",
+                       "9wWmNH6UgDafRuZKTZ02G7arEf9YsJfH2oYanaE6itk0FyMFKA"))
+
+x = t.statuses.home_timeline()
+print(len(x))
+t.search.tweets(q="#pycon")
+
+
+
+
